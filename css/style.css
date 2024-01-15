@@ -1,18 +1,96 @@
 body {
+  font-family: monospace;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+main {
+  background-color: #ecf4fb;
+  background: url('https://picsum.photos/seed/blue/2160/1080/?blur=6') no-repeat
+    center center/cover;
+  height: 100vh;
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+}
+header h1 {
+  text-align: center;
+  position: relative;
+  font-size: 2.5rem;
+  width: 80%;
+  margin: 50px auto;
+  overflow: hidden;
+}
 
 #galeria {
+  position: fixed;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
   max-width: 700px;
   min-width: 400px;
+  padding: 0 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 #galeria img {
+  border-radius: 5px;
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  cursor: pointer;
+}
+#contenedor-principal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+#contenedor-interno {
+  width: 800px;
+  height: auto;
+  border: 2px solid #dcdbdb;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+#img-principal {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: #f9f9f9;
+  font-size: 2rem;
+  text-shadow: black 0.1em 0.1em 0.2em;
+}
+#btn-cierra {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+#btn-retrocede {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+#btn-adelanta {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
 }
