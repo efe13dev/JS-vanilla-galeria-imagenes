@@ -54,10 +54,23 @@ const adelantaImagen = () => {
     imagenPrincipal.src = imagenesGal[posicion].src;
   }
 };
+const retrocedeImagen = () => {
+  let imagenesGal = document.querySelectorAll('.image');
+
+  posicion--;
+
+  if (posicion < 0) {
+    posicion = imagenesGal.length - 1;
+  }
+  console.log(posicion);
+  if (imagenesGal.length > 0) {
+    imagenPrincipal.src = imagenesGal[posicion].src;
+  }
+};
 
 // Agrega un evento de clic al botón de adelante
 btnAdelanta.addEventListener('click', adelantaImagen);
-
+btnRetrocede.addEventListener('click', retrocedeImagen);
 btnCierra.addEventListener('click', () => {
   lightbox.style.display = 'none';
 });

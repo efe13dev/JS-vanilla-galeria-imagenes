@@ -5,9 +5,13 @@ body {
   padding: 0;
 }
 main {
-  background-color: #ecf4fb;
-  background: url('https://picsum.photos/seed/12/2160/1080/?blur=6') no-repeat
-    center center/cover;
+  background: linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   height: 100vh;
 }
 header {
@@ -17,6 +21,10 @@ header {
   padding-top: 2rem;
 }
 header h1 {
+  background: linear-gradient(to bottom, #ffcc00, #ff6600);
+  background-clip: text;
+  color: transparent;
+
   text-align: center;
   position: relative;
   font-size: 2.5rem;
@@ -26,7 +34,7 @@ header h1 {
 }
 
 #galeria {
-  max-width: 80%;
+  max-width: 60%;
   margin: 50px auto;
   list-style: none;
   display: grid;
