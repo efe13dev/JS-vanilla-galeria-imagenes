@@ -35,8 +35,14 @@ async function getImages() {
 let posicion = 0;
 const abreLightbox = (event) => {
   imagenPrincipal.src = event.target.src;
-  lightbox.style.display = 'flex';
   posicion = event.target.id;
+  lightbox.classList.add('is-open');
+  document.body.classList.add('modal-open');
+};
+
+const cierraLightbox = () => {
+  lightbox.classList.remove('is-open');
+  document.body.classList.remove('modal-open');
 };
 
 const adelantaImagen = () => {
@@ -71,8 +77,18 @@ const retrocedeImagen = () => {
 // Agrega un evento de clic al botón de adelante
 btnAdelanta.addEventListener('click', adelantaImagen);
 btnRetrocede.addEventListener('click', retrocedeImagen);
-btnCierra.addEventListener('click', () => {
-  lightbox.style.display = 'none';
+btnCierra.addEventListener('click', cierraLightbox);
+
+lightbox.addEventListener('click', (event) => {
+  if (event.target === lightbox) {
+    cierraLightbox();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+    cierraLightbox();
+  }
 });
 
 getImages();
